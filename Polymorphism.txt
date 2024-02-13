@@ -1,0 +1,91 @@
+operator overloading
+====================
+class Add:
+    def __init__(self,a):
+        self.a = a
+    def __add__(self,o):
+        return self.a + o.a 
+    def __str__(self,p):
+        return str(self.a + p.a)    
+    def __gt__(self,q):
+        return self.a > q.a    
+obj = Add(10)
+obj2 = Add(67)
+print("The sum of two nums is: ",obj+obj2)
+print()
+ob = Add('sai')
+kob = Add(' Kumar')
+print('The name of the person is: ',ob+kob)
+print()
+obs = Add(23)
+obs1 = Add(12)
+print("The first is greater than :",obs<obs1)
+
+method overloading
+==================
+class Add:
+    def m1(self, *args):
+        if args:
+            start = type(args[0])()
+            for i in args:
+                start +=i
+            return start
+obj = Add()
+print(obj.m1(1,2,3,4,5))                
+print(obj.m1(1,2,3,4))                
+print(obj.m1([1,2,3],[5,6,7]))                
+print(obj.m1('sai',' kumar')) 
+
+
+Constructor overloading
+=======================
+class Add:
+    def __init__(self,*args):
+        if len(args) == 1:
+            print("one")
+        elif len(args) == 2:
+            print("Two")
+        else:
+            print("More than two")    
+
+objr = Add(1)        
+obj = Add(1,2)        
+fobj = Add(1,2,4)        
+dobj = Add(1,2,4,6)        
+
+method overriding & constructor overriding
+==========================================
+import time
+class Person:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+    def m1(self):
+        print("Name is :",self.name)
+        print("Age is :",self.age)
+class Employee(Person):
+    def __init__(self,name,age,designation,company):
+        super().__init__(name,age)
+        self.designation = designation
+        self.company = company
+    def m2(self):
+        super().m1()
+        print("designation of the Employee is :",self.designation)    
+        print("company of the Employee is :",self.company)    
+class Student(Person):
+    def __init__(self,name,age,standard,school):
+        super().__init__(name,age)
+        self.standard = standard
+        self.school = school
+    def m3(self):
+        super().m1()   
+        print("standard of the Student is :",self.standard)    
+        print("school of the Student is :",self.school)    
+obj = Employee('Sai',23,'Django developer','IBM')
+print("-----------Employee information--------")
+obj.m2()
+print()
+ob = Student('Kumar',12,'7th','PEMHS')
+print("--------Student information--------")
+ob.m3()
+print("End of an application")
