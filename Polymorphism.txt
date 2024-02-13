@@ -1,5 +1,5 @@
-operator overloading
-====================
+operator overloading in python
+==============================
 class Add:
     def __init__(self,a):
         self.a = a
@@ -21,8 +21,8 @@ obs = Add(23)
 obs1 = Add(12)
 print("The first is greater than :",obs<obs1)
 
-method overloading
-==================
+method overloading in python
+============================
 class Add:
     def m1(self, *args):
         if args:
@@ -39,6 +39,7 @@ print(obj.m1('sai',' kumar'))
 
 Constructor overloading
 =======================
+import time
 class Add:
     def __init__(self,*args):
         if len(args) == 1:
@@ -52,7 +53,7 @@ objr = Add(1)
 obj = Add(1,2)        
 fobj = Add(1,2,4)        
 dobj = Add(1,2,4,6)        
-
+print("End of an application")
 method overriding & constructor overriding
 ==========================================
 import time
